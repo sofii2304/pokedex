@@ -1,7 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
 
+
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  color: var(--clr-black);
+  font-family: 'Rubik', sans-serif;
 }
 
 body {
@@ -46,7 +52,7 @@ h1 {
 }
 
 .pokemon .img-container img {
-  max-width: 90%;
+  max-width: 6rem;
   margin-top: 20px;
 }
 

@@ -32,8 +32,44 @@ const getPokemon = async (id) => {
     createPokemonCard(data)
 }
 
+
 const createPokemonCard = (pokemon) => {
-    
+    const pokemonElement = document.createElement('div');
+    pokemonElement.classList.add('pokemon');
+    pokemonElement.style.backgroundColor = colors[pokemon.types[0].type.name];
+
+    const imgContainer = document.createElement('div');
+    imgContainer.classList.add('img-container');
+
+    const img = document.createElement('img');
+    img.src = pokemon.sprites.other.dream_world.front_default || pokemon.sprites.other['official-artwork'].front_default;
+    img.alt = pokemon.name;
+
+    imgContainer.appendChild(img);
+
+    const info = document.createElement('div');
+    info.classList.add('info');
+
+    const number = document.createElement('span');
+    number.classList.add('number');
+    number.innerText = `#${pokemon.id.toString().padStart(3, '0')}`;
+
+    const name = document.createElement('h3');
+    name.classList.add('name');
+    name.innerText = pokemon.name;
+
+    const type = document.createElement('small');
+    type.classList.add('type');
+    type.innerHTML = `Type: <span>${pokemon.types[0].type.name}</span>`;
+
+    info.appendChild(number);
+    info.appendChild(name);
+    info.appendChild(type);
+
+    pokemonElement.appendChild(imgContainer);
+    pokemonElement.appendChild(info);
+
+    poke_container.appendChild(pokemonElement);
 }
 
-fetchPokemons()
+fetchPokemons();
